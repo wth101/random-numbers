@@ -1,14 +1,19 @@
 import random
 import matplotlib.pyplot as plt
 
-xpoints = range(10)
+fh = open("green dream.txt", "r")
+text = fh.read()
+ypoints = [0] * 26
 
-ypoints = []
+for c in text:
+	if c.isalpha():
+		pos = ord(c.lower())-97
+		ypoints[pos] = ypoints[pos] + 1
 
-print("Hi")
+xpoints = []
 
-for i in range(10):
-	ypoints.append(random.randint(0,19))
+for i in range(26):
+	xpoints.append(chr(i+65))
 
 plt.bar(xpoints, ypoints)
 plt.show()
